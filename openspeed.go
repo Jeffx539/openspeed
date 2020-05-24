@@ -10,27 +10,26 @@ import (
 	"strconv"
 	"io/ioutil"
 	"encoding/json"
+	"github.com/jeffx539/openspeed/pkg"
 )
 
 var testMemory []byte
+var asnDB *pkg.ASNDatabse
 
 const(
 	memoryMax = 1024*1024*128
-
-
 )
 
 // InfoResponse struct contains the response to the /info route
 type InfoResponse struct {
 	RemoteAddress    string `json:"remoteAddress"`
-	ASN uint `json:"autonomousSystemNumber"`
+	ASN uint64 `json:"autonomousSystemNumber"`
 	ASOrg string `json:"autonomousSystemOrganisation"`
+	Country string `json:"autonomousSystemCountry"`
 }
   
 
-
-var upgrader = websocket.Upgrader{} // use default options
-
+var upgrader = websocket.Upgrader{}
 func handlePing(w http.ResponseWriter, r *http.Request) {
 	upgrader.CheckOrigin = func(r *http.Request) bool { return true }
 
@@ -63,24 +62,25 @@ func handlePing(w http.ResponseWriter, r *http.Request) {
 }
 
 
-
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 
-
-
-
 func handleInfo(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
 	ip, port, err := net.SplitHostPort(r.RemoteAddr)
+	
 	if err != nil {
 		log.Println(err,port)
 		http.Error(w, "Failed to Parse IP", http.StatusInternalServerError)
 	}
 
-	json, err := json.Marshal(InfoResponse{RemoteAddress:ip, ASN:0, ASOrg: "Not Implemented"})
+	
+	asnInfo := asnDB.IPToASN(net.ParseIP(ip))
+
+	
+	json, err := json.Marshal(InfoResponse{RemoteAddress:ip, ASN:asnInfo.ASNumber , ASOrg: asnInfo.Description, Country: asnInfo.CountryCode})
 	if err != nil {
 	  http.Error(w, "Failed To Marshal JSON", http.StatusInternalServerError)
 	  log.Println(err)
@@ -135,7 +135,7 @@ func handleUpload(w http.ResponseWriter, r *http.Request){
 
 	buf, err := ioutil.ReadAll(r.Body)
     if err != nil {
-		log.Printf("upload request failed ",err)
+		log.Printf("upload request failed %s",err.Error())
 	}
 
 	
@@ -158,6 +158,13 @@ func allocTestMemory(){
 
 func main() {
 
+
+	asn,err := pkg.LoadASNInfoFile("./ip2asn-combined.tsv.gz")
+	asnDB = asn 
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	allocTestMemory()
 	fs := http.FileServer(http.Dir("./static"))
