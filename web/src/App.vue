@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <v-toolbar-side-icon>
+      <div>
         <v-img class="mr-3" src="@/assets/openspeed-logo.svg" width="30%">
         </v-img>
-      </v-toolbar-side-icon>
+      </div>
       <!-- <v-toolbar-title>OpenSpeed</v-toolbar-title> -->
       <v-spacer></v-spacer>
     </v-app-bar>

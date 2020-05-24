@@ -61,7 +61,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" sm="6">
-          <v-card v-card height="100%">
+          <v-card height="100%">
             <v-card-title
               ><v-icon>mdi-format-text-wrapping-wrap</v-icon
               >Latency</v-card-title
@@ -129,10 +129,8 @@ export default {
     connectionInfo: false,
     speedServer: {
       name: "Standalone Server",
-      httpEndpoint: `${window.location.protocol}//${document.location.host}`,
-      websocketEndpoint: `"${
-        window.location.protocol == "https:" ? "wss:" : "ws:"
-      }//${document.location.host}`
+      httpEndpoint: "http://pug.jm.id.au:4000",
+      websocketEndpoint: "ws://pug.jm.id.au:4000"
     },
 
     serverList: [
@@ -140,10 +138,8 @@ export default {
         text: "Standalone Server",
         value: {
           name: "Standalone Server",
-          httpEndpoint: `${window.location.protocol}//${document.location.host}`,
-          websocketEndpoint: `"${
-            window.location.protocol == "https:" ? "wss:" : "ws:"
-          }//${document.location.host}`
+          httpEndpoint: `http://pug.jm.id.au:4000`,
+          websocketEndpoint: "ws://pug.jm.id.au:4000"
         }
       }
     ]
