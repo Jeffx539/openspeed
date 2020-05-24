@@ -3,7 +3,6 @@ package main
 
 import (
 	"github.com/gorilla/websocket"
-	"github.com/oschwald/geoip2-golang"
 	"net"
 	"net/http"
 	"math/rand"
@@ -14,14 +13,14 @@ import (
 )
 
 var testMemory []byte
-var geoIPDB *geoip2.Reader
 
 const(
-	memoryMax = 1024*1024*512
+	memoryMax = 1024*1024*128
 
 
 )
 
+// InfoResponse struct contains the response to the /info route
 type InfoResponse struct {
 	RemoteAddress    string `json:"remoteAddress"`
 	ASN uint `json:"autonomousSystemNumber"`
@@ -81,13 +80,7 @@ func handleInfo(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to Parse IP", http.StatusInternalServerError)
 	}
 
-	record, err := geoIPDB.ASN(net.ParseIP(ip))
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	json, err := json.Marshal(InfoResponse{RemoteAddress:ip, ASN:record.AutonomousSystemNumber, ASOrg: record.AutonomousSystemOrganization})
+	json, err := json.Marshal(InfoResponse{RemoteAddress:ip, ASN:0, ASOrg: "Not Implemented"})
 	if err != nil {
 	  http.Error(w, "Failed To Marshal JSON", http.StatusInternalServerError)
 	  log.Println(err)
@@ -165,15 +158,7 @@ func allocTestMemory(){
 
 func main() {
 
-	
-	geo, err := geoip2.Open("GeoLite2-ASN.mmdb")
-	
 
-	if err != nil {
-		log.Fatal("Failed to Open GeoIP Database")
-	}
-	
-	geoIPDB = geo
 	allocTestMemory()
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
