@@ -129,8 +129,8 @@ export default {
     connectionInfo: false,
     speedServer: {
       name: "Standalone Server",
-      httpEndpoint: "http://pug.jm.id.au:4000",
-      websocketEndpoint: "ws://pug.jm.id.au:4000"
+      httpEndpoint: `${window.location.protocol}//${window.location.host}`,
+      websocketEndpoint: `${window.location.protocol == "http:" ? "ws:" : "wss:"}//${window.location.host}`
     },
 
     serverList: [
@@ -138,8 +138,8 @@ export default {
         text: "Standalone Server",
         value: {
           name: "Standalone Server",
-          httpEndpoint: `http://pug.jm.id.au:4000`,
-          websocketEndpoint: "ws://pug.jm.id.au:4000"
+          httpEndpoint: `${window.location.protocol}//${window.location.host}`,
+          websocketEndpoint: `${window.location.protocol == "http:" ? "ws:" : "wss:"}//${window.location.host}`
         }
       }
     ]
