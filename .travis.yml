@@ -4,4 +4,7 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - docker build -t jeffx539/openspeed:latest .
+      - docker build -t openspeed .
+      - docker tag openspeed jeffx539/openspeed:latest
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker push jeffx539/openspeed:latest
