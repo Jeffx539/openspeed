@@ -70,16 +70,15 @@ func getProxyAddress(r *http.Request) string {
 	if os.Getenv("REVERSE_PROXY") == "" {
 		return r.RemoteAddr
 	}
-
-	clientAddress := r.Header.Get("X-Real-Ip")
-	if clientAddress == "" {
-		clientAddress = r.Header.Get("X-Forwarded-For")
-	}
-	if clientAddress == "" {
-		clientAddress = r.RemoteAddr
+	if r.Header.Get("X-Real-Ip") != "" {
+		return r.Header.Get("X-Real-Ip") + ":1234"
 	}
 
-	return clientAddress
+	if r.Header.Get("X-Forwarded-For") != "" {
+		return r.Header.Get("X-Forwarded-For") + ":1234"
+	}
+
+	return r.RemoteAddr
 
 }
 
