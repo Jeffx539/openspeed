@@ -1,8 +1,13 @@
 
+![OpenSpeed](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/openspeed-logo-black.svg)
 # NOTE THIS IS VERY EARLY SOFTWARE. WHILE IT SHOULD WORK IN PRODUCTION PLEASE DO NO RELY ON IT
-# OpenSpeed
 
-OpenSpeed Is a FOSS Network Testing Application
+![Mobile](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/screenshot-mobile.png)
+
+
+
+
+OpenSpeed Is a FOSS Network Testing Web Application
 
 Noteable features include
 
@@ -30,7 +35,7 @@ docker run -p 4000:4000 jeffx539/openspeed
 
 # Contribute
 
-Contributions are welcome. There are currently no guideline as this is very, very early software. I'd love to get your input and feedback. Whether is be feature requests, feedback or code!
+Contributions are welcome. There are currently no guideline as this is very, very early software. I'd love to get your input and feedback. Whether it be feature requests, feedback or code!
 
 
 Jeff.
