@@ -1,12 +1,6 @@
 
 ![OpenSpeed](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/openspeed-logo-black.svg)
 # NOTE THIS IS VERY EARLY SOFTWARE. WHILE IT SHOULD WORK IN PRODUCTION PLEASE DO NO RELY ON IT
-
-![Mobile](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/screenshot-mobile.png)
-
-
-
-
 OpenSpeed Is a FOSS Network Testing Web Application
 
 Noteable features include
@@ -19,6 +13,7 @@ Noteable features include
 
 The goal is to eventually support multiple servers from a single web interface and expand on telemtry and logging. The goal is to provide Users and Internet Service Providers (if enabled through the web interface) with helpful information about their connections.
 
+![Mobile](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/screenshot-mobile.png)
 
 
 ## Try It!
