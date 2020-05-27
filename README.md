@@ -24,7 +24,7 @@ The goal is to support multiple servers from a single web interface and expand o
 ## Run It!
 
 
-docker run -p 4000:4000 jeffx539/openspeed
+```docker run -p 4000:4000 jeffx539/openspeed```
 
 
 # Contribute
