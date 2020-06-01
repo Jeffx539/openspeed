@@ -1,5 +1,5 @@
-
 ![OpenSpeed](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/openspeed-logo-black.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FJeffx539%2Fopenspeed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FJeffx539%2Fopenspeed?ref=badge_shield)
 # NOTE THIS IS VERY EARLY SOFTWARE. WHILE IT SHOULD WORK IN PRODUCTION PLEASE DO NO RELY ON IT
 OpenSpeed is a FOSS network testing web application.
 
@@ -33,3 +33,7 @@ Contributions are welcome; however, there are currently no guidelines. This is v
 
 
 Jeff.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FJeffx539%2Fopenspeed.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FJeffx539%2Fopenspeed?ref=badge_large)
