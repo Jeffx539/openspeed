@@ -1,18 +1,21 @@
-
 ![OpenSpeed](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/openspeed-logo-black.svg)
-# NOTE THIS IS VERY EARLY SOFTWARE. WHILE IT SHOULD WORK IN PRODUCTION PLEASE DO NO RELY ON IT
-OpenSpeed is a FOSS network testing web application.
 
-Noteable features include
-
-* Measurement of Download, Upload and Latency.
-* Memory Allocated Testing Files (Not really a mind blowing feature since test files are cached anyway)
-* Mobile Friendly interface
+[![Build Status](https://travis-ci.org/Jeffx539/openspeed.svg?branch=master)](https://travis-ci.org/Jeffx539/openspeed)
 
 
-The goal is to support multiple servers from a single web interface and expand on telemtry and logging in order to provide home users and Internet Service Providers (if enabled through the web interface) with helpful information about connections.
 
-![Mobile](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/screenshot-mobile.png)
+# NOTE: THIS IS VERY EARLY SOFTWARE. WHILE IT SHOULD WORK IN PRODUCTION, PLEASE DO NOT RELY ON IT
+
+OpenSpeed is a F/OSS network testing web application.
+
+Notable features include:
+* Measurement of upload/download speeds and latency
+* Memory allocated test files
+* Mobile friendly responsive interface
+* Low usage of system resources
+
+The goal is to support multiple servers from a single web interface and expand on telemetry and logging in order to provide home users and Internet Service Providers (if enabled through the web interface) with helpful information about connections.
+
 
 
 ## Try It!
@@ -23,8 +26,14 @@ The goal is to support multiple servers from a single web interface and expand o
 
 ## Run It!
 
+```shell
+docker run -p 4000:4000 jeffx539/openspeed
+```
 
-```docker run -p 4000:4000 jeffx539/openspeed```
+
+## Mobile interface
+
+![Mobile](https://raw.githubusercontent.com/Jeffx539/openspeed/master/web/src/assets/screenshot-mobile.png)
 
 
 # Contribute
